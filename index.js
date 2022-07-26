@@ -52,6 +52,6 @@ app.get('/video.mp4', function (req, res) {
 //   console.log('Listening on port 8080!');
 // });
 
-httpsServer.listen(5000, function () {
+httpsServer.listen(process.env.PORT || 8443, function () {
   console.log('https');
 });
