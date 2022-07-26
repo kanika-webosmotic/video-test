@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
 
 app.get('/video.mp4', function (req, res) {
   console.log('got video', {
-    req: req.body,
+    req: req.headers,
     // res: JSON.stringify(res),
   });
   // Ensure there is a range given for the video
