@@ -1,14 +1,14 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
-var https = require('https');
-var privateKey = fs.readFileSync('./sslcert/selfsigned.key', 'utf8');
-var certificate = fs.readFileSync('./sslcert/selfsigned.crt', 'utf8');
+// var https = require('https');
+// var privateKey = fs.readFileSync('./sslcert/selfsigned.key', 'utf8');
+// var certificate = fs.readFileSync('./sslcert/selfsigned.crt', 'utf8');
 
-var httpsServer = https.createServer(
-  { key: privateKey, cert: certificate },
-  app
-);
+// var httpsServer = https.createServer(
+//   { key: privateKey, cert: certificate },
+//   app
+// );
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
@@ -48,10 +48,10 @@ app.get('/video.mp4', function (req, res) {
   videoStream.pipe(res);
 });
 
-// app.listen(8080, function () {
-//   console.log('Listening on port 8080!');
-// });
-
-httpsServer.listen(8443, function () {
-  console.log('https');
+app.listen(8080, function () {
+  console.log('Listening on port 8080!');
 });
+
+// httpsServer.listen(8443, function () {
+//   console.log('https');
+// });
