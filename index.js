@@ -1,6 +1,8 @@
 const express = require('express');
+const dotenv = require('dotenv');
 const app = express();
 const fs = require('fs');
+dotenv.config();
 // var https = require('https');
 // var privateKey = fs.readFileSync('./sslcert/selfsigned.key', 'utf8');
 // var certificate = fs.readFileSync('./sslcert/selfsigned.crt', 'utf8');
@@ -48,8 +50,8 @@ app.get('/video.mp4', function (req, res) {
   videoStream.pipe(res);
 });
 
-app.listen(8080, function () {
-  console.log('Listening on port 8080!');
+app.listen(process.env.PORT || 5000, function () {
+  console.log('Listening on port 5000!', process.env.PORT);
 });
 
 // httpsServer.listen(8443, function () {
